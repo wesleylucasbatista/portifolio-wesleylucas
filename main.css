@@ -1,0 +1,220 @@
+/* Importação das fontes */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:wght@400;600&display=swap');
+
+/* Reset básico e variáveis */
+:root {
+    --cor-primaria: #000000; /* Preto */
+    --cor-secundaria: #F6F6F6; /* Branco quase cinza */
+    --cor-terciaria: #0acaec; /* Azul neon */
+    --cor-hover: #272727; /* Cinza escuro para hover */
+
+    --fonte-principal: 'Krona One', sans-serif;
+    --fonte-secundaria: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Cabeçalho --- */
+.cabecalho {
+    padding: 2% 0 0 15%; /* Topo, direita, baixo, esquerda */
+}
+
+.cabecalho__menu {
+    display: flex;
+    gap: 80px; /* Espaçamento entre os links */
+}
+
+.cabecalho__menu__link {
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+    color: var(--cor-terciaria);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.cabecalho__menu__link:hover {
+    color: var(--cor-secundaria);
+}
+
+/* --- Seção Principal (Conteúdo e Imagem) --- */
+.apresentacao {
+    padding: 5% 15%;
+    display: flex;
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: space-between; /* Espaço entre o texto e a imagem */
+    gap: 82px; /* Espaçamento entre o conteúdo e a imagem */
+    flex-grow: 1; /* Permite que o main ocupe o espaço restante */
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas pequenas */
+}
+
+.apresentacao__conteudo {
+    width: 615px; /* Largura fixa para o conteúdo de texto */
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espaçamento entre os elementos do conteúdo */
+}
+
+.apresentacao__conteudo__titulo {
+    font-size: 2.25rem; /* 36px */
+    font-family: var(--fonte-principal);
+    color: var(--cor-secundaria);
+}
+
+.titulo-destaque {
+    color: var(--cor-terciaria);
+}
+
+.apresentacao__conteudo__texto {
+    font-size: 1.5rem; /* 24px */
+    font-family: var(--fonte-secundaria);
+    color: var(--cor-secundaria);
+    line-height: 1.5;
+}
+
+/* --- Botões de Links --- */
+.apresentacao__links {
+    display: flex;
+    justify-content: space-between;
+    gap: 32px; /* Espaçamento entre os botões */
+    margin-top: 15px;
+}
+
+.apresentacao__links__navegacao {
+    display: flex; /* Para centralizar texto verticalmente */
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 280px;
+    padding: 18px 0;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+    color: var(--cor-secundaria);
+    background-color: var(--cor-terciaria);
+    font-family: var(--fonte-secundaria);
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.apresentacao__links__navegacao:hover {
+    background-color: var(--cor-hover);
+    color: var(--cor-terciaria);
+}
+
+/* --- Imagem e Borda Neon --- */
+.apresentacao__imagem-container {
+    position: relative;
+    width: 460px; /* Largura da imagem */
+    height: 500px; /* Altura da imagem */
+}
+
+.apresentacao__imagem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o container sem distorcer */
+    border-radius: 8px; /* Borda levemente arredondada para a imagem */
+    filter: grayscale(100%); /* Transforma a imagem em preto e branco */
+    z-index: 2;
+    position: relative;
+}
+
+.apresentacao__imagem-borda {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: calc(100% + 20px);
+    height: calc(100% + 20px);
+    border: 3px solid var(--cor-terciaria);
+    border-radius: 12px;
+    box-shadow: 0 0 15px var(--cor-terciaria), inset 0 0 15px var(--cor-terciaria);
+    pointer-events: none; /* Ignora eventos de mouse */
+    z-index: 1;
+}
+
+/* --- Rodapé --- */
+.rodape {
+    background-color: var(--cor-terciaria);
+    color: var(--cor-primaria);
+    padding: 24px;
+    text-align: center;
+    font-family: var(--fonte-secundaria);
+    font-size: 1.5rem; /* 24px */
+    font-weight: 400;
+}
+
+/* --- Responsividade --- */
+@media (max-width: 1200px) {
+    .cabecalho {
+        padding: 5% 0; /* Mais padding no topo para celular */
+    }
+
+    .cabecalho__menu {
+        justify-content: center; /* Centraliza itens do menu */
+        gap: 40px;
+    }
+
+    .apresentacao {
+        flex-direction: column-reverse; /* Imagem acima do texto em telas pequenas */
+        padding: 10% 5%;
+        gap: 40px;
+    }
+
+    .apresentacao__conteudo {
+        width: auto; /* Deixa a largura automática para se ajustar */
+        text-align: center;
+    }
+
+    .apresentacao__conteudo__titulo {
+        font-size: 1.8rem;
+    }
+
+    .apresentacao__conteudo__texto {
+        font-size: 1.2rem;
+    }
+
+    .apresentacao__links {
+        flex-direction: column; /* Botões empilhados */
+        align-items: center;
+    }
+
+    .apresentacao__links__navegacao {
+        width: 80%; /* Ocupa mais largura em telas pequenas */
+    }
+
+    .apresentacao__imagem-container {
+        width: 80%; /* Imagem menor para telas pequenas */
+        max-width: 350px; /* Limite de largura para a imagem */
+        height: auto; /* Altura automática para manter proporção */
+    }
+
+    .apresentacao__imagem-borda {
+        width: calc(100% + 20px); /* Ajusta a borda à nova largura da imagem */
+        height: calc(100% + 20px);
+    }
+
+    .rodape {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cabecalho__menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
